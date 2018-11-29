@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dd201ced1291626ff6cd0af32537e368",
+    "content-hash": "eb84d42c6eb6636d21799752ed1b4fbc",
     "packages": [
         {
             "name": "psr/cache",
@@ -195,6 +195,42 @@
                 "simple-cache"
             ],
             "time": "2017-10-23T01:57:42+00:00"
+        },
+        {
+            "name": "serovvitaly/php-transactor",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/serovvitaly/php-transactor.git",
+                "reference": "3c629f6bc95cbae348e4f30f6c6d0ab556b96630"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/serovvitaly/php-transactor/zipball/3c629f6bc95cbae348e4f30f6c6d0ab556b96630",
+                "reference": "3c629f6bc95cbae348e4f30f6c6d0ab556b96630",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PhpTransactor\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "keywords": [
+                "payment",
+                "transaction"
+            ],
+            "support": {
+                "source": "https://github.com/serovvitaly/php-transactor/tree/master",
+                "issues": "https://github.com/serovvitaly/php-transactor/issues"
+            },
+            "time": "2018-11-29T06:17:13+00:00"
         },
         {
             "name": "symfony/cache",
@@ -1247,7 +1283,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "serovvitaly/php-transactor": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  php:
+    image: php:fpm-alpine
+    container_name: trans_api_php
+    volumes:
+      - ./:/app
