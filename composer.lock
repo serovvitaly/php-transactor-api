@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6604944f98e4d29631ff8e6d66e3435b",
+    "content-hash": "256052f9cd0257ef7a751c94d3512328",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -916,12 +916,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/serovvitaly/php-transactor.git",
-                "reference": "3c629f6bc95cbae348e4f30f6c6d0ab556b96630"
+                "reference": "0c683bcd86fca8bc48f250088c149a8444b9eaa8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/serovvitaly/php-transactor/zipball/3c629f6bc95cbae348e4f30f6c6d0ab556b96630",
-                "reference": "3c629f6bc95cbae348e4f30f6c6d0ab556b96630",
+                "url": "https://api.github.com/repos/serovvitaly/php-transactor/zipball/0c683bcd86fca8bc48f250088c149a8444b9eaa8",
+                "reference": "0c683bcd86fca8bc48f250088c149a8444b9eaa8",
                 "shasum": ""
             },
             "require": {
@@ -944,7 +944,7 @@
                 "source": "https://github.com/serovvitaly/php-transactor/tree/master",
                 "issues": "https://github.com/serovvitaly/php-transactor/issues"
             },
-            "time": "2018-11-29T06:17:13+00:00"
+            "time": "2018-12-03T20:26:50+00:00"
         },
         {
             "name": "symfony/cache",
@@ -2302,7 +2302,8 @@
     "platform": {
         "php": "^7.1.3",
         "ext-ctype": "*",
-        "ext-iconv": "*"
+        "ext-iconv": "*",
+        "ext-json": "*"
     },
     "platform-dev": []
 }
