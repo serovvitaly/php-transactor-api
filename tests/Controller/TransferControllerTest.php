@@ -5,7 +5,7 @@ namespace App\Tests\Controller;
 use Symfony\Bundle\FrameworkBundle\Client;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class TransactionControllerTest extends WebTestCase
+class TransferControllerTest extends WebTestCase
 {
     /** @var Client */
     private $client;
@@ -19,7 +19,7 @@ class TransactionControllerTest extends WebTestCase
 
     public function testPerformMoneyTransfer()
     {
-        $this->client->request('POST', '/transaction', [], [], [], json_encode([
+        $this->client->request('POST', '/transfer', [], [], [], json_encode([
             'sender' => [
                 'id' => 2002001000200000 . 9850,
                 'type' => 'account-identifier',
@@ -59,7 +59,7 @@ class TransactionControllerTest extends WebTestCase
         $errorCode,
         $errorMessage
     ) {
-        $this->client->request('POST', '/transaction', [], [], [], json_encode([
+        $this->client->request('POST', '/transfer', [], [], [], json_encode([
             'sender' => [
                 'id' => $senderAccountId,
                 'type' => 'account-identifier',

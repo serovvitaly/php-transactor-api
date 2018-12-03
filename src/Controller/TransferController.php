@@ -11,7 +11,11 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
-class TransactionController extends AbstractController
+/**
+ * Контроллер "Денежный перевод"
+ * @package App\Controller
+ */
+class TransferController extends AbstractController
 {
     /** @var TransactionDtoAssembler */
     private $transactionDtoAssembler;
@@ -21,14 +25,13 @@ class TransactionController extends AbstractController
     public function __construct(
         TransactionDtoAssembler $transactionDtoAssembler,
         MoneyTransferServiceInterface $moneyTransferService
-    )
-    {
+    ) {
         $this->transactionDtoAssembler = $transactionDtoAssembler;
         $this->moneyTransferService = $moneyTransferService;
     }
 
     /**
-     * @Route("/transaction", name="transaction", methods={"POST"})
+     * @Route("/transfer", name="transfer", methods={"POST"})
      * @param Request $request
      * @return JsonResponse
      */
