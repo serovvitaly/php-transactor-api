@@ -6,3 +6,13 @@ services:
     container_name: trans_api_php
     volumes:
       - ./:/app
+    links:
+      - database
+  database:
+    image: percona
+    container_name: trans_db
+    environment:
+      MYSQL_ROOT_PASSWORD: 123
+      MYSQL_DATABASE: trans
+    ports:
+      - 3307:3306
