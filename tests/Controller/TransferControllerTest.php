@@ -2,6 +2,7 @@
 
 namespace App\Tests\Controller;
 
+use Symfony\Bridge\Doctrine\RegistryInterface;
 use Symfony\Bundle\FrameworkBundle\Client;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Response;
@@ -10,14 +11,33 @@ class TransferControllerTest extends WebTestCase
 {
     /** @var Client */
     private $client;
+    /** @var RegistryInterface $doctrine */
+    private $doctrine;
 
     public function setUp()
     {
         parent::setUp();
 
+        self::bootKernel();
+
+        $this->doctrine = self::$container->get('doctrine');
+
         $this->client = static::createClient();
     }
 
+    /**
+     * Очищает таблицу от записей
+     */
+    private function truncate()
+    {
+        /** @var \Doctrine\DBAL\Driver\Connection $connection */
+        $connection = $this->doctrine->getConnection();
+        $connection->exec('truncate table transaction');
+    }
+
+    /**
+     * Выполняет HTTP запрос
+     */
     private function request(array $data): Response
     {
         $this->client->request('POST', '/transfer', [], [], [], json_encode($data));
@@ -35,6 +55,9 @@ class TransferControllerTest extends WebTestCase
         $recipientAccountId,
         $transferringMoney
     ) {
+
+        $this->truncate();
+
         $response = $this->request([
             'sender' => [
                 'id' => $senderAccountId,
@@ -52,9 +75,11 @@ class TransferControllerTest extends WebTestCase
             ]
         ]);
 
-        //$this->assertEquals(200, $response->getStatusCode());
+        //$this->assertEquals(200, $response->getStatusCode(), $response->getContent());
 
         $this->assertJson($response->getContent());
+
+        $this->truncate();
     }
 
     public function moneyTransferDataProvider()

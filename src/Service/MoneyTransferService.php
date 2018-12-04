@@ -5,7 +5,7 @@ namespace App\Service;
 use App\Dto\TransactionDto;
 use App\Factory\TransactionFactory;
 use App\Repository\AccountRepository;
-use App\Repository\TransactionRepository;
+use App\Repository\TransactionRepositoryInterface;
 use App\Transaction\TransactionManager;
 use PhpTransactor\Service\Exception\TransactionException;
 use PhpTransactor\Service\Exception\ValidationException;
@@ -15,6 +15,14 @@ use PhpTransactor\Validator\MoneyTransferValidator;
 
 class MoneyTransferService implements MoneyTransferServiceInterface
 {
+    /** @var TransactionRepositoryInterface */
+    private $transactionRepository;
+
+    public function __construct(TransactionRepositoryInterface $transactionRepository)
+    {
+        $this->transactionRepository = $transactionRepository;
+    }
+
     /**
      * @inheritdoc
      */
@@ -25,7 +33,7 @@ class MoneyTransferService implements MoneyTransferServiceInterface
             new MoneyTransferTransaction(
                 new TransactionManager(),
                 new AccountRepository(),
-                new TransactionRepository(),
+                $this->transactionRepository,
                 new TransactionFactory()
             )
         );
