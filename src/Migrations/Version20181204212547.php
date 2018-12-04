@@ -8,13 +8,13 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20181204202207 extends AbstractMigration
+final class Version20181204212547 extends AbstractMigration
 {
     public function up(Schema $schema) : void
     {
         $this->addSql('
             CREATE TABLE transaction (
-                id BIGINT UNSIGNED AUTO_INCREMENT NOT NULL,
+                id CHAR(36) NOT NULL,
                 sender_account_id VARCHAR(20) NOT NULL,
                 recipient_account_id VARCHAR(20) NOT NULL,
                 money_minor_units INT UNSIGNED NOT NULL,

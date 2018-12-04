@@ -30,6 +30,7 @@ class TransferControllerTest extends WebTestCase
      */
     private function truncate()
     {
+        return;
         /** @var \Doctrine\DBAL\Driver\Connection $connection */
         $connection = $this->doctrine->getConnection();
         $connection->exec('truncate table transaction');
@@ -37,6 +38,8 @@ class TransferControllerTest extends WebTestCase
 
     /**
      * Выполняет HTTP запрос
+     * @param array $data
+     * @return Response
      */
     private function request(array $data): Response
     {
